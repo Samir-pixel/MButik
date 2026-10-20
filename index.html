@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Мясной Бутик — Элитные отрубы, стейки, полуфабрикаты и халяль</title>
+  <meta name="description" content="Мясной Бутик: свежая мраморная говядина, сочные стейки Рибай и Томагавк, авторские рулеты, традиционные национальные блюда (Ба1арш, Йоьхъш, манты, хинкали) и полуфабрикаты ручной лепки. 100% Халяль. Доставка.">
+  <link rel="icon" type="image/webp" href="logo.webp">
+
+  <!-- Google Fonts: Cormorant Garamond 300 (заголовки роскоши) + Manrope (чистый санс) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       НАВИГАЦИОННАЯ ПАНЕЛЬ
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-block" aria-label="Мясной Бутик Главная">
+        <span class="brand-name"></span>
+      </a>
+
+      <nav aria-label="Основная навигация">
+        <ul class="nav-links">
+          <li><a href="#catalog" class="nav-link">Каталог и цены</a></li>
+          <li><a href="#steaks" class="nav-link">Стейки</a></li>
+          <li><a href="#traditions" class="nav-link">Национальные блюда</a></li>
+          <li><a href="#about" class="nav-link">О бутике</a></li>
+          <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+          <li><a href="#delivery" class="nav-link">Доставка</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+79637016060" class="header-phone">+7 (963) 701-60-60</a>
+        <button type="button" class="header-cart-btn" id="open-cart-btn" aria-label="Открыть корзину">
+          <span>Корзина</span>
+          <span class="cart-count-badge" id="cart-badge">0</span>
+        </button>
+        <button type="button" class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Открыть меню">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO СЕКЦИЯ (Image Overlay Container per DESIGN (1).md)
+         ========================================================================== -->
+    <section class="hero-section dark-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content-col">
+          <div class="hero-meta-row">
+            <span class="caption-label">ESTD 2022 · ГРОЗНЫЙ</span>
+            <span class="caption-label">100% ХАЛЯЛЬ · ДОСТАВКА</span>
+          </div>
+
+          <h1 class="text-display hero-headline">Лучшее мясо<br>в Грозном</h1>
+          <p class="hero-subhead">
+            Премиальная мраморная говядина, выдержанные стейки Рибай и Томагавк, авторские рулеты и чеченская традиционная кулинария ручной лепки.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary-dark">Каталог (54 позиции)</a>
+            <button type="button" class="btn btn-primary-dark" onclick="checkout('wa')">Заказ в WhatsApp</button>
+          </div>
+        </div>
+        <div class="hero-logo">
+          <img src="logo.webp" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         БЕГУЩАЯ СТРОКА (Marquee per DESIGN (1).md)
+         ========================================================================== -->
+    <aside class="marquee-strip" aria-label="Фирменные позиции">
+      <div class="marquee-content">
+        <span class="marquee-item">РИБАЙ ТОМАГАВК <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">БА1АРШ ИЗ БАРАНИНЫ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ЙОЬХЪШ НАЦИОНАЛЬНЫЙ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ВАРЕНИКИ С ЧЕРЕМШОЙ NEW <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ВЫРЕЗКА В МАРИНАДЕ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">БАНКЕТНЫЕ РУЛЕТЫ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">КОСТНЫЙ ТОМЛЕНЫЙ БУЛЬОН <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ХИНКАЛИ И МАНТЫ РУЧНОЙ ЛЕПКИ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">100% СТАНДАРТ ХАЛЯЛЬ <span class="marquee-bullet">•</span></span>
+        <!-- Дублирование для бесшовного зацикливания -->
+        <span class="marquee-item">РИБАЙ ТОМАГАВК <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">БА1АРШ ИЗ БАРАНИНЫ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ЙОьХЪШ НАЦИОНАЛЬНЫЙ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ВАРЕНИКИ С ЧЕРЕМШОЙ NEW <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ВЫРЕЗКА В МАРИНАДЕ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">БАНКЕТНЫЕ РУЛЕТЫ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">КОСТНЫЙ ТОМЛЕНЫЙ БУЛЬОН <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">ХИНКАЛИ И МАНТЫ РУЧНОЙ ЛЕПКИ <span class="marquee-bullet">•</span></span>
+        <span class="marquee-item">100% СТАНДАРТ ХАЛЯЛЬ <span class="marquee-bullet">•</span></span>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         4 СТОЛПА МАСТЕРСТВА БУТИКА
+         ========================================================================== -->
+    <section class="pillars-section" id="about">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="caption-label">ФИЛОСОФИЯ МЯСНОГО РЕМЕСЛА</span>
+            <h2 class="text-heading-lg" style="margin-top: 8px;">БЕЗУПРЕЧНЫЙ СТАНДАРТ</h2>
+          </div>
+          <p style="max-width: 44ch; color: var(--color-espresso); font-size: 14px;">
+            Мы отбираем мясо исключительного откорма и создаем кулинарные шедевры ручной работы, сохраняя древние рецепты предков.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-num">01</div>
+            <h3 class="pillar-title serif-heading">100% ХАЛЯЛЬ</h3>
+            <p class="pillar-desc">
+              Строжайшее соблюдение норм забоя и чистоты. Только здоровые животные свободного выпаса на высокогорных лугах.
+            </p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">02</div>
+            <h3 class="pillar-title serif-heading">ЮВЕЛИРНАЯ ЗАЧИСТКА</h3>
+            <p class="pillar-desc">
+              Наши мясники зачищают каждый отруб вручную: удаляют жилы и пленки, оставляя только безукоризненную мякоть.
+            </p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">03</div>
+            <h3 class="pillar-title serif-heading">МРАМОРНОСТЬ И СТЕЙКИ</h3>
+            <p class="pillar-desc">
+              Рибай, Томагавк, Стриплойн и альтернативные отрубы (Фланк, Спайдер) с идеальным распределением жировых волокон.
+            </p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-num">04</div>
+            <h3 class="pillar-title serif-heading">РУЧНАЯ ЛЕПКА</h3>
+            <p class="pillar-desc">
+              Национальные блюда: Ба1арш, Йоьхъш, Сискал, а также сочные манты, курзе и сезонные вареники с горной черемшой.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ==========================================================================
+         ФОТО-РАСКЛАДКА (EDITORIAL SPREAD)
+         ========================================================================== -->
+    <section class="editorial-spread-section" id="steaks">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <span class="caption-label">ГАСТРОНОМИЧЕСКАЯ КОЛЛЕКЦИЯ</span>
+          <h2 class="text-heading-lg" style="margin-top: 10px;">ИСКУССТВО ВКУСА</h2>
+          <p style="color: var(--color-espresso); margin-top: 12px;">
+            Вся продукция подготавливается в день заказа и доставляется в специализированных термобоксах.
+          </p>
+        </div>
+
+        <div class="spread-grid">
+          <div class="spread-card">
+            <div class="spread-img-box">
+              <img src="steaks.jpg" alt="Мраморные стейки Рибай и Томагавк" class="spread-img">
+            </div>
+            <div class="spread-content">
+              <span class="caption-label">СТЕЙКИ И ГРИЛЬ</span>
+              <h3 class="spread-title serif-heading">РИБАЙ И ТОМАГАВК</h3>
+              <p class="spread-text">
+                Отборные стейки на кости и без кости, а также в фирменном маринаде шефа. Неповторимая сочность и аромат при любой степени прожарки.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread-card" id="traditions">
+            <div class="spread-img-box">
+              <img src="manti.jpg" alt="Традиционные манты, хинкали и вареники" class="spread-img">
+            </div>
+            <div class="spread-content">
+              <span class="caption-label">НАЦИОНАЛЬНАЯ КУХНЯ</span>
+              <h3 class="spread-title serif-heading">МАНТЫ, ХИНКАЛИ И БА1АРШ</h3>
+              <p class="spread-text">
+                Тончайшее тесто, рубленое мясо с горными специями и аутентичные рецепты. Сезонные новинки: нежные вареники с черемшой и кукурузный сискал.
+              </p>
+            </div>
+          </div>
+
+          <div class="spread-card">
+            <div class="spread-img-box">
+              <img src="specialties.jpg" alt="Деликатесные рулеты и шашлык" class="spread-img">
+            </div>
+            <div class="spread-content">
+              <span class="caption-label">ДЕЛИКАТЕСЫ ДЛЯ ПРАЗДНИКА</span>
+              <h3 class="spread-title serif-heading">РУЛЕТЫ И ШАШЛЫК</h3>
+              <p class="spread-text">
+                Куриные, говяжьи и бараньи банкетные рулеты, ароматный шашлык из мраморного Рибая и сочный кебаб люля для вашего застолья.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ИНТЕРАКТИВНЫЙ КАТАЛОГ С ПОИСКОМ И ФИЛЬТРАЦИЕЙ
+         ========================================================================== -->
+    <section class="catalog-section" id="catalog">
+      <div class="container">
+        <!-- Вводная шапка каталога -->
+        <div class="catalog-intro-row">
+          <div>
+            <span class="caption-label">ПРЕЙСКУРАНТ БУТИКА · 54 ПОЗИЦИИ</span>
+            <h2 class="text-heading-lg" style="margin-top: 8px;">КАТАЛОГ И ЦЕНЫ</h2>
+          </div>
+          <p class="catalog-intro-desc">
+            Все отрубы разделываются в день заказа. Вы можете смотреть ассортимент в виде удобного компактного ресторанного меню или классических карточек.
+          </p>
+        </div>
+
+        <!-- Закрепляемая панель фильтров (Sticky Toolbar) -->
+        <div class="catalog-sticky-toolbar" id="catalog-toolbar">
+          <div class="catalog-toolbar-top">
+            <!-- Поиск с индикатором количества -->
+            <div class="search-box-wrapper">
+              <svg class="search-icon-svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="catalog-search-input" class="catalog-search-input" placeholder="Поиск (например: Рибай, Манты, Черемша, Вырезка)..." aria-label="Поиск по каталогу">
+              <span id="search-count-badge" class="search-count-badge"></span>
+            </div>
+
+            <!-- Переключатель режима: Компактный список vs Карточки -->
+            <div class="view-switcher" role="group" aria-label="Режим отображения каталога">
+              <button type="button" class="view-btn active" id="btn-view-menu" title="Компактное ресторанное меню">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <span>Меню-список</span>
+              </button>
+              <button type="button" class="view-btn" id="btn-view-grid" title="Сетка карточек">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Карточки</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Вкладки основных категорий -->
+          <div class="category-tabs-scroll" id="category-tabs-container">
+            <!-- Генерируется через app.js -->
+          </div>
+
+          <!-- Вкладки подкатегорий (быстрые чипсы) -->
+          <div class="subcat-chips-scroll" id="subcat-chips-container" style="display: none;">
+            <!-- Генерируется динамически через app.js -->
+          </div>
+        </div>
+
+        <!-- Контейнер для вывода товаров (Меню-список или Карточки) -->
+        <div id="catalog-products-container">
+          <!-- Генерируется динамически через app.js -->
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ==========================================================================
+         ОТЗЫВЫ ГОСТЕЙ (По спецификации DESIGN (1).md)
+         ========================================================================== -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="caption-label">ДОВЕРИЕ И РЕПУТАЦИЯ</span>
+            <h2 class="text-heading-lg" style="margin-top: 8px;">ОТЗЫВЫ ГОСТЕЙ</h2>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-family: var(--font-sans); font-size: 28px; font-weight: 700;">4.9 / 5</span>
+            <div class="stars-row" style="margin-bottom: 0;">★★★★★</div>
+            <span class="caption-label">БОЛЕЕ 800+ ЗАКАЗОВ</span>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="testimonial-card">
+            <div>
+              <div class="stars-row">★★★★★</div>
+              <p class="review-body">
+                «Брали стейк Томагавк и маринованную вырезку на семейное торжество. Мясо мягчайшее, тает во рту! Никаких пленок и жил, зачистка идеальная. Спасибо мастеру обвалки!»
+              </p>
+            </div>
+            <div class="review-author-row">
+              <span class="author-name">Ибрагим М.</span>
+              <span class="review-source-tag">ЯНДЕКС КАРТЫ</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="stars-row">★★★★★</div>
+              <p class="review-body">
+                «Национальные блюда просто на высоте. Ба1арш и Йоьхъш приготовлены точно так, как делали наши бабушки — вкус настоящий, чистый халяль. Очень удобно заказывать с доставкой прямо на дом.»
+              </p>
+            </div>
+            <div class="review-author-row">
+              <span class="author-name">Зарема К.</span>
+              <span class="review-source-tag">2ГИС</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="stars-row">★★★★★</div>
+              <p class="review-body">
+                «Попробовали новинку — вареники с черемшой и манты из рубленого мяса. Тесто тонкое, бульон внутри сохраняется до последней капли. Сервис и упаковка действительно уровня бутика.»
+              </p>
+            </div>
+            <div class="review-author-row">
+              <span class="author-name">Адам С.</span>
+              <span class="review-source-tag">GOOGLE ОТЗЫВЫ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ДОСТАВКА И СЕРВИС
+         ========================================================================== -->
+    <section class="delivery-section" id="delivery">
+      <div class="container delivery-grid">
+        <div>
+          <span class="caption-label" style="color: var(--color-saffron-glow);">БЫСТРАЯ И БЕРЕЖНАЯ ДОСТАВКА</span>
+          <h2 class="text-heading-lg" style="color: var(--color-parchment); margin-top: 8px;">ДОСТАВКА В ДЕНЬ ЗАКАЗА</h2>
+          <p style="color: var(--color-linen); margin-top: 16px; font-size: 14px; line-height: 1.6;">
+            Мы бережно упаковываем каждый килограмм мяса в герметичные контейнеры и вакуум по желанию гостя. Доставка осуществляется курьерами в термосумках с соблюдением температурного режима.
+          </p>
+
+          <ul class="delivery-list">
+            <li class="delivery-item">
+              <span class="delivery-item-icon">✓</span>
+              <span><strong>Доставка по городу</strong> — от 45 до 90 минут с момента подтверждения заказа.</span>
+            </li>
+            <li class="delivery-item">
+              <span class="delivery-item-icon">✓</span>
+              <span><strong>Вакуумная упаковка</strong> — бесплатная опция для долгого сохранения свежести в холодильнике.</span>
+            </li>
+            <li class="delivery-item">
+              <span class="delivery-item-icon">✓</span>
+              <span><strong>Индивидуальный распил</strong> — нарежем стейки нужной вам толщины под гриль или сковороду.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="delivery-cta-card">
+          <h3 class="serif-heading" style="font-size: 28px; color: var(--color-parchment); margin-bottom: 12px;">
+            ОФОРМИТЬ БЫСТРЫЙ ЗАКАЗ
+          </h3>
+          <p style="font-size: 13px; color: var(--color-linen); margin-bottom: 24px;">
+            Нажмите кнопку ниже или выберите позиции в каталоге — мы сразу рассчитаем стоимость и согласуем удобное время доставки.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <button type="button" class="btn btn-whatsapp" onclick="checkout('wa')">
+              Оформить через WhatsApp
+            </button>
+            <button type="button" class="btn btn-telegram" onclick="checkout('tg')">
+              Оформить через Telegram
+            </button>
+            <a href="tel:+79280000000" class="btn btn-primary-dark">
+              Позвонить в бутик
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       КОРЗИНА (Slide-Over Drawer)
+       ========================================================================== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Корзина покупок">
+    <div class="cart-drawer-header">
+      <h3 class="serif-heading" style="font-size: 24px;">Ваш заказ</h3>
+      <button type="button" class="cart-close-btn" id="close-cart-btn" aria-label="Закрыть корзину">✕</button>
+    </div>
+
+    <div class="cart-items-list" id="cart-items-container">
+      <!-- Генерируется через app.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Сумма заказа:</span>
+        <span class="cart-total-sum" id="cart-total-sum">0 ₽</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <input type="text" id="order-name" class="order-input-field" placeholder="Ваше имя">
+        <input type="tel" id="order-phone" class="order-input-field" placeholder="Телефон для связи">
+        <input type="text" id="order-address" class="order-input-field" placeholder="Адрес доставки или «Самовывоз»">
+      </div>
+
+      <div class="cart-order-btns">
+        <button type="button" class="btn btn-whatsapp" id="btn-checkout-wa">В WhatsApp</button>
+        <button type="button" class="btn btn-telegram" id="btn-checkout-tg">В Telegram</button>
+      </div>
+      <p style="font-size: 11px; text-align: center; color: var(--color-walnut);">
+        После нажатия откроется чат с менеджером с уже заполненным списком ваших блюд.
+      </p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       ПОДВАЛ САЙТА (FOOTER)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-block" style="margin-bottom: 16px;">
+            <img src="logo.webp" style="width: 150px; height: 150px;" alt="Логотип Мясной Бутик" class="brand-logo-img" >
+          </div>
+          <p style="font-size: 13px; color: var(--color-linen); line-height: 1.6; max-width: 38ch;">
+            Элитный мясной бутик и авторская кулинария. Свежее мясо, правильная разделка, выдержанные стейки и чеченские национальные деликатесы.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Навигация</h4>
+          <ul class="footer-links-list">
+            <li><a href="#catalog" class="footer-link">Каталог говядины</a></li>
+            <li><a href="#steaks" class="footer-link">Стейки Рибай и Томагавк</a></li>
+            <li><a href="#traditions" class="footer-link">Ба1арш и Йоьхъш</a></li>
+            <li><a href="#catalog" class="footer-link">Манты и хинкали</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Стандарты</h4>
+          <ul class="footer-links-list">
+            <li><span class="footer-link">100% Сертификат Халяль</span></li>
+            <li><span class="footer-link">Ежедневный забой</span></li>
+            <li><span class="footer-link">Термо-доставка</span></li>
+            <li><span class="footer-link">Индивидуальный заказ</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Контакты</h4>
+          <ul class="footer-links-list">
+            <li><span class="footer-link">Ежедневно: 08:00 – 21:00</span></li>
+            <li><a href="tel:+79280000000" class="footer-link">+7 (963) 701-60-60</a></li>
+            <li><span class="footer-link">Адрес:Айдамирова, 96 
+              г. Грозный, Чеченская Республика</span></li>
+            <li><a href="https://wa.me/79637016060" class="footer-link" style="color: var(--color-saffron-glow);">Чат в WhatsApp →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2022–2026 Компания «Мясной Бутик». Все права защищены.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=4"></script>
+</body>
+</html>
