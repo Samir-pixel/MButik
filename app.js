@@ -261,6 +261,48 @@ function toggleCart(open) {
   }
 }
 
+function rub(n) {
+  return n.toLocaleString('ru-RU') + ' ₽';
+}
+
+function buildOrderText(channel, entries, name, phone, address) {
+  const mark = (s) => channel === 'wa' ? `*${s}*` : s;
+  let totalSum = 0;
+  const lines = entries.map((item, index) => {
+    const itemTotal = item.price * item.qty;
+    totalSum += itemTotal;
+    const measure = String(item.unit).includes('кг') ? 'кг' : 'шт';
+    return `${index + 1}. ${item.name}\n   ${item.qty} ${measure}  ×  ${rub(item.price)}  =  ${rub(itemTotal)}`;
+  });
+
+  return [
+    mark('МЯСНОЙ БУТИК'),
+    'Новый заказ',
+    '────────────────',
+    '',
+    mark('КЛИЕНТ'),
+    `Имя: ${name}`,
+    `Телефон: ${phone}`,
+    `Адрес: ${address}`,
+    '',
+    mark('ЗАКАЗ'),
+    lines.join('\n\n'),
+    '',
+    '────────────────',
+    mark(`ИТОГО: ${rub(totalSum)}`),
+    '',
+    'Подтвердите, пожалуйста, наличие и время доставки.'
+  ].join('\n');
+}
+
+(function () {
+  const tg = buildOrderText('tg', [{ name: 'Рибай', qty: 2, price: 100, unit: '₽ / кг' }], 'Иван', '1', 'Грозный');
+  const wa = buildOrderText('wa', [{ name: 'Манты', qty: 1, price: 50, unit: '₽' }], 'А', '2', 'Дом');
+  if (!tg.includes('2 кг') || !tg.includes('ИТОГО: 200 ₽') || tg.includes('*') || !wa.includes('*ИТОГО: 50 ₽*') || !wa.includes('1 шт')) {
+    throw new Error('order text');
+  }
+})();
+
 function checkout(channel) {
   const entries = Object.values(cart);
   if (entries.length === 0) {
@@ -271,17 +313,7 @@ function checkout(channel) {
   const name = document.getElementById('order-name')?.value.trim() || 'Клиент';
   const phone = document.getElementById('order-phone')?.value.trim() || 'Не указан';
   const address = document.getElementById('order-address')?.value.trim() || 'Самовывоз / Уточнить';
-
-  let totalSum = 0;
-  let text = `Здравствуйте! Хочу оформить заказ в «Мясном Бутике»:\n\n`;
-  entries.forEach((item, index) => {
-    const itemTotal = item.price * item.qty;
-    totalSum += itemTotal;
-    text += `${index + 1}. ${item.name} — ${item.qty} шт./кг (${item.price} ${item.unit}) = ${itemTotal.toLocaleString('ru-RU')} ₽\n`;
-  });
-
-  text += `\nИтого: ${totalSum.toLocaleString('ru-RU')} ₽\n`;
-  text += `Имя: ${name}\nТелефон: ${phone}\nАдрес доставки: ${address}\n\nПожалуйста, подтвердите наличие и время доставки.`;
+  const text = buildOrderText(channel, entries, name, phone, address);
 
   const waNumber = '79637016060';
 
