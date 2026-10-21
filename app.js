@@ -283,8 +283,7 @@ function checkout(channel) {
   text += `\nИтого: ${totalSum.toLocaleString('ru-RU')} ₽\n`;
   text += `Имя: ${name}\nТелефон: ${phone}\nАдрес доставки: ${address}\n\nПожалуйста, подтвердите наличие и время доставки.`;
 
-  // shortcut: демонстрационные контакты бутика, при релизе заменить на рабочий номер WhatsApp
-  const waNumber = '79280000000';
+  const waNumber = '79637016060';
 
   if (channel === 'wa') {
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');

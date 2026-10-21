@@ -215,10 +215,21 @@ h1, h2, h3, h4, .serif-heading {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 18px 0;
+  padding: calc(18px + env(safe-area-inset-top, 0px)) 0 18px;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+/* Закрывает щель над шапкой в Safari, куда при прокрутке вылезает контент. */
+.site-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 120px;
+  background: inherit;
 }
 
 .site-header.is-scrolled {
@@ -242,6 +253,16 @@ h1, h2, h3, h4, .serif-heading {
   width: 42px;
   height: 42px;
   object-fit: contain;
+}
+
+.header-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.nav-phone {
+  display: none;
 }
 
 .brand-name {
@@ -291,7 +312,7 @@ h1, h2, h3, h4, .serif-heading {
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .header-phone {
     display: block;
   }
@@ -343,25 +364,45 @@ h1, h2, h3, h4, .serif-heading {
   cursor: pointer;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
+  .brand-block,
+  .header-actions {
+    position: relative;
+    z-index: 1;
+  }
   .nav-links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(41, 38, 34, 0.98);
+    position: fixed;
+    inset: 0;
+    background: var(--color-midnight-roast);
     flex-direction: column;
-    padding: 24px;
+    justify-content: center;
+    padding: 108px 24px 32px;
     gap: 18px;
-    border-bottom: 1px solid var(--color-warm-stone);
     text-align: center;
+    z-index: 0;
   }
   .nav-links.mobile-open {
     display: flex;
   }
   .mobile-menu-toggle {
     display: block;
+  }
+  .nav-phone {
+    display: list-item;
+  }
+  .site-header.is-scrolled {
+    background: var(--color-parchment);
+    border-bottom-color: var(--color-warm-stone);
+  }
+  .site-header.is-scrolled .header-cart-btn,
+  .site-header.is-scrolled .mobile-menu-toggle,
+  .site-header.is-scrolled .nav-link {
+    color: var(--color-onyx-warm);
+    border-color: var(--color-onyx-warm);
+  }
+  .site-header.is-scrolled .nav-links {
+    background: var(--color-parchment);
   }
 }
 
@@ -1519,7 +1560,7 @@ h1, h2, h3, h4, .serif-heading {
 /* Телефон, узкий и средний планшет. Десктоп от 1101px не трогаем. */
 @media (max-width: 768px) {
   .site-header {
-    padding: 12px 0;
+    padding: calc(4px + env(safe-area-inset-top, 0px)) 0 4px;
   }
 
   .header-cart-btn,
@@ -1575,7 +1616,7 @@ h1, h2, h3, h4, .serif-heading {
   }
 
   .catalog-sticky-toolbar {
-    top: 72px;
+    top: 76px;
   }
 
   .search-box-wrapper {
